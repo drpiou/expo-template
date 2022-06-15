@@ -6,6 +6,9 @@ import { setTranslations } from '@/lib/Localization';
 import { locales } from '@/src/locales';
 import { Stack } from '@/src/navigation';
 import { modalNames, ScreenKey, screens } from '@/src/screens';
+import { ThemeKey } from '@/src/themes';
+import { StateList } from '@/state/config';
+import { log } from '@drpiou/ts-utils';
 import { NavigationContainer } from '@react-navigation/native';
 import { reduce } from 'lodash';
 import React from 'react';
@@ -28,10 +31,18 @@ const App = (): JSX.Element => {
     [[], []] as [JSX.Element[], JSX.Element[]],
   );
 
+  const handleState = (state: StateList): void => {
+    log('GlobalStateProvider:onChange', { state });
+  };
+
+  const handleTheme = (theme: ThemeKey): void => {
+    log('ThemeProvider:onChange', { theme });
+  };
+
   return (
     <SafeAreaProvider>
-      <GlobalStateProvider>
-        <ThemeProvider initialTheme={'default'}>
+      <GlobalStateProvider onChange={handleState}>
+        <ThemeProvider defaultTheme={'default'} onChange={handleTheme}>
           <NotificationProvider>
             <ToastProvider>
               <NavigationContainer>
