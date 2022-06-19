@@ -30,4 +30,5 @@ The `@drpiou/expo-template` is an Expo boot template using the `@drpiou` package
 
 - clone this project
 - `yarn install`
+- `npx pod-install`
 - `yarn ios` (or any expo command - ⚠️ only tested with ios)
