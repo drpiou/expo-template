@@ -10,6 +10,7 @@ import { useToast } from '@/contexts/toast';
 import { useApi } from '@/hooks/useApi';
 import { useNavigate } from '@/hooks/useNavigate';
 import { restart } from '@/lib/Restart';
+import { debug } from '@/utils/debug';
 import { _tr } from '@/utils/trans';
 import { useOnMount, useOnUnmount, useStateSafe } from '@drpiou/react-utils';
 import React from 'react';
@@ -31,11 +32,11 @@ const HomeScreen = (): JSX.Element => {
   const [inputValue, setInputValue] = useStateSafe<string>(user.firstname);
 
   useOnMount(() => {
-    console.log('__DEV__:useOnMount', { name: user.name });
+    debug.log('__DEV__:useOnMount', { name: user.name });
   });
 
   useOnUnmount(() => {
-    console.log('__DEV__:useOnUnmount', { name: user.name });
+    debug.log('__DEV__:useOnUnmount', { name: user.name });
   });
 
   const goToTerms = (): void => {
