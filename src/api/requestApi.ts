@@ -1,6 +1,5 @@
 import { prepareAxios } from '@/lib/Axios';
 import { AxiosConfig, AxiosOptions, AxiosRequest } from '@drpiou/axios';
-import { get } from 'lodash';
 
 export const requestApi = <CD = unknown, SD = unknown, ED = unknown>(
   config?: AxiosConfig<CD>,
@@ -13,7 +12,7 @@ export const requestApi = <CD = unknown, SD = unknown, ED = unknown>(
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json; charset=UTF-8',
-        ...get(config, 'headers'),
+        ...config?.headers,
       },
     },
     options,

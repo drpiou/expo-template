@@ -8,7 +8,7 @@ import { Stack } from '@/src/navigation';
 import { modalNames, ScreenKey, screens } from '@/src/screens';
 import { ThemeKey } from '@/src/themes';
 import { StateList } from '@/state/config';
-import { log } from '@drpiou/ts-utils';
+import { debug } from '@/utils/debug';
 import { NavigationContainer } from '@react-navigation/native';
 import { reduce } from 'lodash';
 import React from 'react';
@@ -32,11 +32,11 @@ const App = (): JSX.Element => {
   );
 
   const handleState = (state: StateList): void => {
-    log('GlobalStateProvider:onChange', { state });
+    debug.log('GlobalStateProvider:onChange', { state });
   };
 
   const handleTheme = (theme: ThemeKey): void => {
-    log('ThemeProvider:onChange', { theme });
+    debug.log('ThemeProvider:onChange', { theme });
   };
 
   return (
