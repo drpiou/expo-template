@@ -7,6 +7,8 @@ export const en = {
     api: 'An error occurred.',
     general: 'An error occurred.',
     network: 'No network detected.',
+    timeout: 'Connexion timeout.',
+    connexion: 'No connection detected.',
     code: {
       '400': 'Bad Request.',
       '401': 'Unauthorized.',

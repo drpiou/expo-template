@@ -8,6 +8,7 @@ import { useGlobalState } from '@/contexts/state';
 import { useTheme } from '@/contexts/theme';
 import { useToast } from '@/contexts/toast';
 import { useApi } from '@/hooks/useApi';
+import { useAxios } from '@/hooks/useAxios';
 import { useNavigate } from '@/hooks/useNavigate';
 import { restart } from '@/lib/Restart';
 import { debug } from '@/utils/debug';
@@ -24,6 +25,8 @@ const HomeScreen = (): JSX.Element => {
   const toast = useToast();
 
   const api = useApi();
+
+  const axios = useAxios();
 
   const { user, setState } = useGlobalState(['user']);
 
@@ -50,6 +53,25 @@ const HomeScreen = (): JSX.Element => {
   const testApi = (): void => {
     void api.getTranslation(
       { lang_code: 'fr' },
+      {
+        showError: true,
+        showSuccess: true,
+      },
+    );
+  };
+
+  const testAxios = (): void => {
+    void axios.request(
+      {
+        url: 'translation',
+        method: 'GET',
+        baseURL: 'https://api.domain.com',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        timeout: 1000,
+      },
       {
         showError: true,
         showSuccess: true,
@@ -129,6 +151,7 @@ const HomeScreen = (): JSX.Element => {
       <Button title={'go terms'} onPress={goToTerms} />
       <Button title={'show loading'} onPress={showLoading} />
       <Button title={'api'} onPress={testApi} />
+      <Button title={'axios'} onPress={testAxios} />
       <Button title={'notification'} onPress={testNotification} />
       <Button title={'toast'} onPress={testToast} />
       <Button title={'theme'} onPress={testTheme} />

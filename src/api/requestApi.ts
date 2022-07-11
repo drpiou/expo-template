@@ -1,13 +1,9 @@
 import { prepareAxios } from '@/lib/Axios';
-import { AxiosConfig, AxiosOptions, AxiosRequest } from '@drpiou/axios';
 
-export const requestApi = <CD = unknown, SD = unknown, ED = unknown>(
-  config?: AxiosConfig<CD>,
-  options?: AxiosOptions<SD, ED>,
-): AxiosRequest<SD, ED, CD> => {
-  return prepareAxios<SD, ED, CD>(
+export const requestApi: typeof prepareAxios = (config, options) => {
+  return prepareAxios(
     {
-      baseURL: 'https://api.bdc.com',
+      baseURL: 'https://api.domain.com',
       ...config,
       headers: {
         Accept: 'application/json',

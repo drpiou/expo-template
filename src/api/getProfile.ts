@@ -1,14 +1,12 @@
 import { requestApi } from '@/api/requestApi';
-import { AxiosApiRequest } from '@drpiou/axios';
-
-export type ApiProfileData = undefined;
+import { AxiosRequestDataVoid } from '@drpiou/axios';
 
 export type ApiProfileResponseData = {
   firstname: string;
   lastname: string;
 };
 
-export const getProfile: AxiosApiRequest<ApiProfileData, ApiProfileResponseData> = (data, options) => {
+export const getProfile: AxiosRequestDataVoid<ApiProfileResponseData> = (data, options) => {
   return requestApi(
     {
       url: 'profile',
