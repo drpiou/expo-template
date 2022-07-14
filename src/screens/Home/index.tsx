@@ -63,13 +63,9 @@ const HomeScreen = (): JSX.Element => {
   const testAxios = (): void => {
     void axios.request(
       {
+        baseURL: 'https://api.domain.com',
         url: 'translation',
         method: 'GET',
-        baseURL: 'https://api.domain.com',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
         timeout: 1000,
       },
       {
