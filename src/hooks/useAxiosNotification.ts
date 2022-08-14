@@ -1,8 +1,9 @@
 import { NotificationOptions, useNotification } from '@/contexts/notification';
-import { ToastOptions, ToastRef, useToast } from '@/contexts/toast';
+import { ToastOptions, useToast } from '@/contexts/toast';
 import { _tr } from '@/utils/trans';
 import { AxiosResponseError, AxiosResponseSuccess } from '@drpiou/axios';
 import { UseAxiosCallbackAfter, UseAxiosCallbackBefore, UseAxiosOptions } from '@drpiou/react-axios';
+import { StackItemRef } from '@drpiou/react-stack';
 import { isPlainObject } from 'lodash';
 import { useCallback, useMemo } from 'react';
 
@@ -29,7 +30,7 @@ export type UseApiOptions = {
 };
 
 export type UseApiBefore = {
-  toastRef?: ToastRef | null;
+  toastRef?: StackItemRef | null;
 };
 
 export type UseApiCallbackBefore = UseAxiosCallbackBefore<UseApiOptions, UseApiBefore>;

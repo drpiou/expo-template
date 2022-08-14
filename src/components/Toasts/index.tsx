@@ -1,12 +1,13 @@
 import Toast from '@/components/Toast';
 import View from '@/components/View';
-import { ToastsComponentProps } from '@/contexts/toast';
+import { Toast as Toast_Type } from '@/contexts/toast';
+import { StackComponentProps } from '@drpiou/react-stack';
 import { map } from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export type ToastsProps = ToastsComponentProps & {
+export type ToastsProps = StackComponentProps<Toast_Type> & {
   //
 };
 

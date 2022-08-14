@@ -4,15 +4,13 @@ The `@drpiou/expo-template` is an Expo boot template using the `@drpiou` package
 
 ## Packages
 
-- "@drpiou/async-storage": "^0.0.2"
-- "@drpiou/axios": "^0.0.2"
-- "@drpiou/expo-secure-storage": "^0.0.2"
-- "@drpiou/react-axios": "^0.0.2"
-- "@drpiou/react-stack": "^0.0.2"
-- "@drpiou/react-state": "^0.0.2"
-- "@drpiou/react-theme": "^0.0.2"
-- "@drpiou/react-utils": "^0.0.2"
-- "@drpiou/ts-utils": "^0.0.2"
+- "@drpiou/axios": "0.0.3"
+- "@drpiou/react-axios": "0.0.3"
+- "@drpiou/react-stack": "0.0.3"
+- "@drpiou/react-state": "0.0.4"
+- "@drpiou/react-theme": "0.0.3"
+- "@drpiou/react-utils": "0.0.3"
+- "@drpiou/ts-utils": "0.0.3"
 - "@react-navigation/native": "^6.0.10"
 - "expo": "~45.0.0"
 - "expo-localization": "~13.0.0"

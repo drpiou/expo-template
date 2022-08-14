@@ -5,5 +5,5 @@ import { createThemeContext, WithThemeProps } from '@drpiou/react-theme';
 export type ThemedProps<C> = C & WithThemeProps<ThemeKey, Theme>;
 
 export const [useTheme, ThemeProvider, withTheme, withoutTheme] = createThemeContext(themes, {
-  theme: 'default',
+  theme: 'dark',
 });

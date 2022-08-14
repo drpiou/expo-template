@@ -1,4 +1,4 @@
-import { StateList } from '@/state/config';
+import { StateList } from '@/src/state';
 import { setName } from '@/state/sagas/setName';
 import { StateSaga } from '@drpiou/react-state';
 

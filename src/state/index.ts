@@ -1,4 +1,4 @@
-import { userState } from '@/state/config/user';
+import { userState } from '@/state/user';
 
 export type StateList = typeof state;
 
