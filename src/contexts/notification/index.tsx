@@ -1,5 +1,4 @@
-import Notifications from '@/components/Notifications';
-import { createStackContext, StackComponentProps, StackItem, StackItemRef, StackOptions } from '@drpiou/react-stack';
+import { createStackContext, StackItem, StackOptions, StackRef } from '@drpiou/react-stack';
 
 export type NotificationType = 'default' | 'info' | 'success' | 'warning' | 'error';
 
@@ -13,10 +12,8 @@ export type NotificationOptions = StackOptions<{
 
 export type Notification = StackItem<NotificationOptions>;
 
-export type NotificationRef = StackItemRef;
+export type NotificationRef = StackRef<NotificationOptions>;
 
-export type NotificationsComponentProps = StackComponentProps<Notification>;
-
-export const [useNotification, NotificationProvider] = createStackContext(Notifications, {
+export const [useNotification, NotificationProvider] = createStackContext<NotificationOptions>({
   defaultDuration: 3000,
 });

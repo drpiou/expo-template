@@ -1,6 +1,6 @@
 import { Theme } from '@/types/theme';
 
-export const defaultTheme: Theme = {
+export const lightTheme: Theme = {
   colors: {
     background: {
       light: 'rgb(255, 255, 255)',

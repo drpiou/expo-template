@@ -1,12 +1,13 @@
 import Notification from '@/components/Notification';
 import View from '@/components/View';
-import { NotificationsComponentProps } from '@/contexts/notification';
+import { Notification as Notification_Type } from '@/contexts/notification';
+import { StackComponentProps } from '@drpiou/react-stack';
 import { map } from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export type NotificationsProps = NotificationsComponentProps & {
+export type NotificationsProps = StackComponentProps<Notification_Type> & {
   //
 };
 

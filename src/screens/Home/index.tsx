@@ -28,18 +28,18 @@ const HomeScreen = (): JSX.Element => {
 
   const axios = useAxios();
 
-  const { user, setState } = useGlobalState(['user']);
+  const { state, setState } = useGlobalState();
 
   const { theme, setTheme } = useTheme();
 
-  const [inputValue, setInputValue] = useStateSafe<string>(user.firstname);
+  const [inputValue, setInputValue] = useStateSafe<string>(state.user.firstname);
 
   useOnMount(() => {
-    debug.log('__DEV__:useOnMount', { name: user.name });
+    debug.log('__DEV__:useOnMount', { name: state.user.name });
   });
 
   useOnUnmount(() => {
-    debug.log('__DEV__:useOnUnmount', { name: user.name });
+    debug.log('__DEV__:useOnUnmount', { name: state.user.name });
   });
 
   const goToTerms = (): void => {
@@ -122,7 +122,7 @@ const HomeScreen = (): JSX.Element => {
   };
 
   const testTheme = (): void => {
-    setTheme(theme === 'default' ? 'dark' : 'default');
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   const testInput = (value: string): void => {
@@ -140,9 +140,9 @@ const HomeScreen = (): JSX.Element => {
   return (
     <Page style={styles.container}>
       <Text>{_tr('home')}</Text>
-      <Text>{user.firstname}</Text>
-      <Text>{user.lastname}</Text>
-      <Text>{user.name}</Text>
+      <Text>{state.user.firstname}</Text>
+      <Text>{state.user.lastname}</Text>
+      <Text>{state.user.name}</Text>
       <SvgAddOutline width={50} height={50} />
       <Button title={'go terms'} onPress={goToTerms} />
       <Button title={'show loading'} onPress={showLoading} />

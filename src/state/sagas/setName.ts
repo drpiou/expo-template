@@ -1,4 +1,4 @@
-import { StateList } from '@/state/config';
+import { StateList } from '@/src/state';
 import { StateSagaCallback } from '@drpiou/react-state';
 
 export const setName: StateSagaCallback<StateList> = (state) => {

@@ -1,5 +1,5 @@
 import { darkTheme } from '@/themes/dark';
-import { defaultTheme } from '@/themes/default';
+import { lightTheme } from '@/themes/light';
 
 export type ThemeList = typeof themes;
 
@@ -7,5 +7,5 @@ export type ThemeKey = keyof ThemeList;
 
 export const themes = {
   dark: darkTheme,
-  default: defaultTheme,
+  light: lightTheme,
 };

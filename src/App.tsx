@@ -1,3 +1,5 @@
+import Notifications from '@/components/Notifications';
+import Toasts from '@/components/Toasts';
 import { NotificationProvider } from '@/contexts/notification';
 import { GlobalStateProvider } from '@/contexts/state';
 import { ThemeProvider, withTheme } from '@/contexts/theme';
@@ -6,9 +8,6 @@ import { setTranslations } from '@/lib/Localization';
 import { locales } from '@/src/locales';
 import { Stack } from '@/src/navigation';
 import { modalNames, ScreenKey, screens } from '@/src/screens';
-import { ThemeKey } from '@/src/themes';
-import { StateList } from '@/state/config';
-import { debug } from '@/utils/debug';
 import { NavigationContainer } from '@react-navigation/native';
 import { reduce } from 'lodash';
 import React from 'react';
@@ -20,31 +19,23 @@ const App = (): JSX.Element => {
   const [pages, modals] = reduce(
     screens,
     (acc, Screen, screenName) => {
-      if (modalNames.indexOf(screenName as ScreenKey) === -1) {
-        acc[0].push(<Stack.Screen key={screenName} name={screenName as ScreenKey} component={withTheme()(Screen)} />);
-      } else {
-        acc[1].push(<Stack.Screen key={screenName} name={screenName as ScreenKey} component={withTheme()(Screen)} />);
-      }
+      acc[modalNames.indexOf(screenName as ScreenKey) === -1 ? 0 : 1].push(
+        <Stack.Screen key={screenName} name={screenName as ScreenKey}>
+          {withTheme()(Screen)}
+        </Stack.Screen>,
+      );
 
       return acc;
     },
     [[], []] as [JSX.Element[], JSX.Element[]],
   );
 
-  const handleState = (state: StateList): void => {
-    debug.log('GlobalStateProvider:onChange', { state });
-  };
-
-  const handleTheme = (theme: ThemeKey): void => {
-    debug.log('ThemeProvider:onChange', { theme });
-  };
-
   return (
     <SafeAreaProvider>
-      <GlobalStateProvider onChange={handleState}>
-        <ThemeProvider defaultTheme={'default'} onChange={handleTheme}>
-          <NotificationProvider>
-            <ToastProvider>
+      <GlobalStateProvider>
+        <ThemeProvider>
+          <NotificationProvider Component={Notifications}>
+            <ToastProvider Component={Toasts}>
               <NavigationContainer>
                 <Stack.Navigator initialRouteName={'Splash'} screenOptions={{ headerShown: false }}>
                   <Stack.Group>{pages}</Stack.Group>

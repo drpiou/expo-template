@@ -1,4 +1,4 @@
-import { state } from '@/state/config';
+import { state } from '@/src/state';
 import { sagas } from '@/state/sagas';
 import { createStateContext } from '@drpiou/react-state';
 
