@@ -13,8 +13,8 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@drpiou/axios": "0.0.3",
-    "@drpiou/react-axios": "0.0.3",
+    "@drpiou/axios": "https://github.com/drpiou/axios#develop",
+    "@drpiou/react-axios": "https://github.com/drpiou/react-axios#develop",
     "@drpiou/react-stack": "0.0.3",
     "@drpiou/react-state": "0.0.4",
     "@drpiou/react-theme": "0.0.3",

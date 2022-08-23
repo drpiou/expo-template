@@ -51,28 +51,24 @@ const HomeScreen = (): JSX.Element => {
   };
 
   const testApi = (): void => {
-    void api.getTranslation(
-      { lang_code: 'fr' },
-      {
-        showError: true,
-        showSuccess: true,
-      },
-    );
+    void api.getTranslation({ lang_code: 'fr' }).start({
+      showError: true,
+      showSuccess: true,
+    });
   };
 
   const testAxios = (): void => {
-    void axios.request(
-      {
+    void axios
+      .request({
         baseURL: 'https://api.domain.com',
         url: 'translation',
         method: 'GET',
         timeout: 1000,
-      },
-      {
+      })
+      .start({
         showError: true,
         showSuccess: true,
-      },
-    );
+      });
   };
 
   const testNotification = (): void => {

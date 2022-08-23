@@ -1,17 +1,16 @@
 import { requestApi } from '@/api/requestApi';
-import { AxiosRequestDataVoid } from '@drpiou/axios';
+import { AxiosOptions, AxiosRequest } from '@drpiou/axios';
 
 export type ApiProfileResponseData = {
   firstname: string;
   lastname: string;
 };
 
-export const getProfile: AxiosRequestDataVoid<ApiProfileResponseData> = (data, options) => {
+export const getProfile = (options: AxiosOptions): AxiosRequest<ApiProfileResponseData> => {
   return requestApi(
     {
       url: 'profile',
       method: 'GET',
-      params: data,
     },
     {
       test: true,

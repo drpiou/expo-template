@@ -1,7 +1,7 @@
 import { requestApi } from '@/api/requestApi';
 import { en } from '@/locales/en';
 import { Locale } from '@/src/locales';
-import { AxiosRequestData } from '@drpiou/axios';
+import { AxiosOptions, AxiosRequest } from '@drpiou/axios';
 
 export type ApiTranslationData = {
   lang_code: string;
@@ -9,7 +9,7 @@ export type ApiTranslationData = {
 
 export type ApiTranslationResponseData = Locale;
 
-export const getTranslation: AxiosRequestData<ApiTranslationData, ApiTranslationResponseData> = (data, options) => {
+export const getTranslation = (data: ApiTranslationData, options?: AxiosOptions): AxiosRequest<ApiTranslationResponseData> => {
   return requestApi(
     {
       url: 'translation',
