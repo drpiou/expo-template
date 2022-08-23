@@ -4,12 +4,12 @@ The `@drpiou/expo-template` is an Expo boot template using the `@drpiou` package
 
 ## Packages
 
-- "@drpiou/axios": "0.0.3"
-- "@drpiou/react-axios": "0.0.3"
+- "@drpiou/axios": "0.0.4"
+- "@drpiou/react-axios": "0.0.4"
 - "@drpiou/react-stack": "0.0.3"
 - "@drpiou/react-state": "0.0.4"
 - "@drpiou/react-theme": "0.0.3"
-- "@drpiou/react-utils": "0.0.3"
+- "@drpiou/react-utils": "0.0.4"
 - "@drpiou/ts-utils": "0.0.3"
 - "@react-navigation/native": "^6.0.10"
 - "expo": "~45.0.0"
