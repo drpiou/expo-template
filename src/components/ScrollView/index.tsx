@@ -1,3 +1,4 @@
+import { useCallbackEvent } from '@drpiou/react-utils';
 import { map } from 'lodash';
 import React, { useMemo } from 'react';
 import { ScrollView as ScrollView_Import, ScrollViewProps as ScrollViewProps_Import, StyleSheet, ViewStyle } from 'react-native';
@@ -34,9 +35,9 @@ const ScrollView = (props: ScrollViewProps): JSX.Element => {
     };
   }, [style, contentContainerStyle, center]);
 
-  const handleScroll = (): void => {
+  const handleScroll = useCallbackEvent((): void => {
     onScroll?.();
-  };
+  });
 
   return (
     <ScrollView_Import
@@ -44,7 +45,7 @@ const ScrollView = (props: ScrollViewProps): JSX.Element => {
       style={scrollViewStyles.scrollViewStyle}
       contentContainerStyle={scrollViewStyles.contentContainerStyle}
       scrollEventThrottle={viewProps.scrollEventThrottle ?? 200}
-      onScroll={typeof onScroll === 'function' ? handleScroll : undefined}
+      onScroll={handleScroll}
     />
   );
 };

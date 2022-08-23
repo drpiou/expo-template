@@ -18,7 +18,7 @@ export type ScreenValueList = {
   [SN in ScreenKey]: ScreenValue<SN>;
 };
 
-export const modalNames: ScreenKey[] = ['Loading', 'Terms'];
+export const modalNames: ScreenKey[] = ['Loading'];
 
 export const screens = {
   Home: HomeScreen,

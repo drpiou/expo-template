@@ -1083,10 +1083,9 @@
   resolved "https://registry.yarnpkg.com/@drpiou/react-theme/-/react-theme-0.0.3.tgz#2ecbf3b530c765e72c992cd2a9ad9fab938b41c1"
   integrity sha512-rIodDQ7Pn0lYyh2Fhfkahi6id9eEA8bPejgyPDITdaFnl63ZXvoMuoTz5TRJ6sxOw1PBC/PZmaPiqs0pbwQ1Ng==
 
-"@drpiou/react-utils@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@drpiou/react-utils/-/react-utils-0.0.3.tgz#4570be1a56a432f6a668153a7967c5acaf48a4a0"
-  integrity sha512-yrjcvqgiN4Va40B7ACzoTrlAuL6pq08X1aoEqpj3MGhjdzjg7f1hdHQOoq5qOXDGmtDpcMhiUHNrdyJoRStu2w==
+"@drpiou/react-utils@https://github.com/drpiou/react-utils#develop":
+  version "0.0.4"
+  resolved "https://github.com/drpiou/react-utils#3410d751431b22843db78d14e42fbbda65ab062f"
 
 "@drpiou/ts-utils@0.0.3":
   version "0.0.3"
