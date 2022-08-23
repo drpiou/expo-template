@@ -8,7 +8,7 @@ import { ThemeKey } from '@/src/themes';
 import { StorageItem } from '@/types/asyncStorage';
 import { storage } from '@/utils/storage';
 import { _tr } from '@/utils/trans';
-import { useOnMount, useStateSafe } from '@drpiou/react-utils';
+import { useCallbackEvent, useOnMount, useStateSafe } from '@drpiou/react-utils';
 import React from 'react';
 
 const SplashScreen = (): JSX.Element => {
@@ -44,11 +44,15 @@ const SplashScreen = (): JSX.Element => {
     void init();
   });
 
+  const handleHome = useCallbackEvent((): void => {
+    goToHome();
+  });
+
   return (
     <Screen theme={theme} scrollEnabled={false}>
       <Text theme={theme}>{_tr('loading')}</Text>
 
-      {loaded && <Button title={'go home'} onPress={goToHome} />}
+      {loaded && <Button title={'go home'} onPress={handleHome} />}
     </Screen>
   );
 };

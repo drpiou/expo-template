@@ -4,26 +4,23 @@ import Modal from '@/components/Modal';
 import Text from '@/components/Text';
 import { useNavigate } from '@/hooks/useNavigate';
 import { _tr } from '@/utils/trans';
+import { useCallbackEvent } from '@drpiou/react-utils';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
-export type TermsScreenProps = {
-  //
-};
 
 const TermsScreen = (): JSX.Element => {
   const navigation = useNavigate();
 
-  const goBack = (): void => {
+  const handleBack = useCallbackEvent((): void => {
     navigation.goBack();
-  };
+  });
 
   return (
     <Modal style={styles.container}>
       <Text>{_tr('terms')}</Text>
       <Text>{_tr('terms')}</Text>
       <Text>{_tr('terms')}</Text>
-      <Button title={'hide'} onPress={goBack} />
+      <Button title={'back'} onPress={handleBack} />
       <Text>{_tr('terms')}</Text>
       <Text>{_tr('terms')}</Text>
       <Text>{_tr('terms')}</Text>
@@ -85,7 +82,7 @@ const TermsScreen = (): JSX.Element => {
       <Text>{_tr('terms')}</Text>
       <Text>{_tr('terms')}</Text>
       <Text>{_tr('terms')}</Text>
-      <Button title={'hide'} onPress={goBack} />
+      <Button title={'back'} onPress={handleBack} />
       <Text>{_tr('terms')}</Text>
       <Text>{_tr('terms')}</Text>
       <Text>{_tr('terms')}</Text>

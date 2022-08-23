@@ -13,7 +13,7 @@ import { useNavigate } from '@/hooks/useNavigate';
 import { restart } from '@/lib/Restart';
 import { debug } from '@/utils/debug';
 import { _tr } from '@/utils/trans';
-import { useOnMount, useOnUnmount, useStateSafe } from '@drpiou/react-utils';
+import { useCallbackEvent, useOnMount, useOnUnmount, useStateSafe } from '@drpiou/react-utils';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
@@ -42,40 +42,36 @@ const HomeScreen = (): JSX.Element => {
     debug.log('__DEV__:useOnUnmount', { name: state.user.name });
   });
 
-  const goToTerms = (): void => {
+  const handleTerms = useCallbackEvent((): void => {
     navigation.navigate('Terms');
-  };
+  });
 
-  const showLoading = (): void => {
+  const handleLoading = useCallbackEvent((): void => {
     navigation.navigate('Loading');
-  };
+  });
 
-  const testApi = (): void => {
-    void api.getTranslation(
-      { lang_code: 'fr' },
-      {
-        showError: true,
-        showSuccess: true,
-      },
-    );
-  };
+  const handleApi = useCallbackEvent((): void => {
+    void api.getTranslation({ lang_code: 'fr' }).start({
+      showError: true,
+      showSuccess: true,
+    });
+  });
 
-  const testAxios = (): void => {
-    void axios.request(
-      {
+  const handleAxios = useCallbackEvent((): void => {
+    void axios
+      .request({
         baseURL: 'https://api.domain.com',
         url: 'translation',
         method: 'GET',
         timeout: 1000,
-      },
-      {
+      })
+      .start({
         showError: true,
         showSuccess: true,
-      },
-    );
-  };
+      });
+  });
 
-  const testNotification = (): void => {
+  const handleNotification = useCallbackEvent((): void => {
     notification.show({
       text: 'notification default',
       type: 'default',
@@ -97,9 +93,9 @@ const HomeScreen = (): JSX.Element => {
       type: 'error',
       onClose: () => undefined,
     });
-  };
+  });
 
-  const testToast = (): void => {
+  const handleToast = useCallbackEvent((): void => {
     toast.show({
       text: 'toast default',
       type: 'default',
@@ -119,23 +115,23 @@ const HomeScreen = (): JSX.Element => {
       text: 'toast error',
       type: 'error',
     });
-  };
+  });
 
-  const testTheme = (): void => {
+  const handleTheme = useCallbackEvent((): void => {
     setTheme(theme === 'light' ? 'dark' : 'light');
-  };
+  });
 
-  const testInput = (value: string): void => {
+  const handleInput = useCallbackEvent((value: string): void => {
     setInputValue(value);
-  };
+  });
 
-  const testSave = (): void => {
+  const handleSave = useCallbackEvent((): void => {
     setState({ user: { firstname: inputValue } });
-  };
+  });
 
-  const testRestart = (): void => {
+  const handleRestart = useCallbackEvent((): void => {
     restart();
-  };
+  });
 
   return (
     <Page style={styles.container}>
@@ -144,16 +140,16 @@ const HomeScreen = (): JSX.Element => {
       <Text>{state.user.lastname}</Text>
       <Text>{state.user.name}</Text>
       <SvgAddOutline width={50} height={50} />
-      <Button title={'go terms'} onPress={goToTerms} />
-      <Button title={'show loading'} onPress={showLoading} />
-      <Button title={'api'} onPress={testApi} />
-      <Button title={'axios'} onPress={testAxios} />
-      <Button title={'notification'} onPress={testNotification} />
-      <Button title={'toast'} onPress={testToast} />
-      <Button title={'theme'} onPress={testTheme} />
-      <Input value={inputValue} onChangeText={testInput} />
-      <Button title={'save'} onPress={testSave} />
-      <Button title={'restart'} onPress={testRestart} />
+      <Button title={'go terms'} onPress={handleTerms} />
+      <Button title={'show loading'} onPress={handleLoading} />
+      <Button title={'api'} onPress={handleApi} />
+      <Button title={'axios'} onPress={handleAxios} />
+      <Button title={'notification'} onPress={handleNotification} />
+      <Button title={'toast'} onPress={handleToast} />
+      <Button title={'theme'} onPress={handleTheme} />
+      <Input value={inputValue} onChangeText={handleInput} />
+      <Button title={'save'} onPress={handleSave} />
+      <Button title={'restart'} onPress={handleRestart} />
     </Page>
   );
 };

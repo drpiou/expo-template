@@ -1,7 +1,7 @@
 import { NotificationOptions, useNotification } from '@/contexts/notification';
 import { ToastOptions, useToast } from '@/contexts/toast';
 import { _tr } from '@/utils/trans';
-import { AxiosResponseError, AxiosResponseSuccess } from '@drpiou/axios';
+import { AxiosRequestResponseError, AxiosRequestResponseSuccess } from '@drpiou/axios';
 import { UseAxiosCallbackAfter, UseAxiosCallbackBefore, UseAxiosOptions } from '@drpiou/react-axios';
 import { StackItemRef } from '@drpiou/react-stack';
 import { isPlainObject } from 'lodash';
@@ -20,12 +20,12 @@ export type UseApiOptions = {
     | boolean
     | string
     | Partial<UseApiNotificationOptions>
-    | ((response: AxiosResponseError) => string | Partial<UseApiNotificationOptions> | false | undefined);
+    | ((response: AxiosRequestResponseError) => string | Partial<UseApiNotificationOptions> | false | undefined);
   showSuccess?:
     | boolean
     | string
     | UseApiNotificationOptions
-    | ((response: AxiosResponseSuccess) => string | UseApiNotificationOptions | false | undefined);
+    | ((response: AxiosRequestResponseSuccess) => string | UseApiNotificationOptions | false | undefined);
   showToast?: string | ToastOptions;
 };
 
