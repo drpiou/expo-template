@@ -15,21 +15,21 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 setTranslations(locales, 'en');
 
+const [pages, modals] = reduce(
+  screens,
+  (acc, Screen, screenName) => {
+    acc[modalNames.indexOf(screenName as ScreenKey) === -1 ? 0 : 1].push(
+      <Stack.Screen key={screenName} name={screenName as ScreenKey}>
+        {withTheme()(Screen)}
+      </Stack.Screen>,
+    );
+
+    return acc;
+  },
+  [[], []] as [JSX.Element[], JSX.Element[]],
+);
+
 const App = (): JSX.Element => {
-  const [pages, modals] = reduce(
-    screens,
-    (acc, Screen, screenName) => {
-      acc[modalNames.indexOf(screenName as ScreenKey) === -1 ? 0 : 1].push(
-        <Stack.Screen key={screenName} name={screenName as ScreenKey}>
-          {withTheme()(Screen)}
-        </Stack.Screen>,
-      );
-
-      return acc;
-    },
-    [[], []] as [JSX.Element[], JSX.Element[]],
-  );
-
   return (
     <SafeAreaProvider>
       <GlobalStateProvider>
