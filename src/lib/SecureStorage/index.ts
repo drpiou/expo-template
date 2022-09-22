@@ -17,7 +17,7 @@ export default class SecureStore<S extends Record<string, unknown>> {
         value = await SecureStore_Import.getItemAsync(key as string);
       }
 
-      const parsedValue = value === null ? undefined : JSON.parse(value);
+      const parsedValue: unknown = value === null ? undefined : JSON.parse(value);
 
       return (parsedValue === undefined ? def : parsedValue) as never;
     } catch (e) {

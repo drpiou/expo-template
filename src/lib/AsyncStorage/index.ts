@@ -17,7 +17,7 @@ export default class AsyncStorage<S extends Record<string, unknown>> {
         value = await AsyncStorage_Import.getItem(key as string);
       }
 
-      const parsedValue = value === null ? undefined : JSON.parse(value);
+      const parsedValue: unknown = value === null ? undefined : JSON.parse(value);
 
       return (parsedValue === undefined ? def : parsedValue) as never;
     } catch (e) {

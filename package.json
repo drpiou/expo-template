@@ -1,6 +1,7 @@
 {
   "name": "@drpiou/expo-template",
   "version": "1.0.0",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "expo start --dev-client",
@@ -66,6 +67,5 @@
     "@types/react-native": "^0.67.7",
     "react-devtools": "^4.23.0",
     "react-devtools-core": "^4.23.0"
-  },
-  "private": true
+  }
 }

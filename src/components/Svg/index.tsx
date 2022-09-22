@@ -13,7 +13,7 @@ export type SvgProps = SvgProps_Import & {
   children?: ((options: SvgPropsChildrenOptions) => React.ReactNode) | React.ReactNode;
 };
 
-const Svg = (props: React.PropsWithChildren<SvgProps>): JSX.Element => {
+const Svg = (props: SvgProps): JSX.Element => {
   const { color, strokeWidth, children, ...svgProps } = props;
 
   const options = {

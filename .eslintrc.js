@@ -21,9 +21,10 @@ module.exports = {
     'no-console': 'warn',
     'no-extra-semi': 'error',
     'no-return-await': 'error',
-    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_.*_$', varsIgnorePattern: '^_.*_$' }],
     'prettier/prettier': 'error',
     'react/jsx-indent': ['error', 2, { checkAttributes: false, indentLogicalExpressions: false }],
+    'react/jsx-key': ['error'],
     'react/jsx-no-bind': ['warn'],
   },
   settings: {
@@ -55,10 +56,10 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': ['error'],
         '@typescript-eslint/no-invalid-void-type': ['warn'],
         '@typescript-eslint/no-shadow': ['error'],
-        '@typescript-eslint/no-unsafe-argument': ['off'], // I don't know why some exported packages trigger this rule
-        '@typescript-eslint/no-unsafe-assignment': ['off'], // I don't know why some exported packages trigger this rule
-        '@typescript-eslint/no-unsafe-call': ['off'], // I don't know why some exported packages trigger this rule
-        '@typescript-eslint/no-unsafe-member-access': ['off'], // I don't know why some exported packages trigger this rule
+        // '@typescript-eslint/no-unsafe-argument': ['off'], // I don't know why some exported packages trigger this rule
+        // '@typescript-eslint/no-unsafe-assignment': ['off'], // I don't know why some exported packages trigger this rule
+        // '@typescript-eslint/no-unsafe-call': ['off'], // I don't know why some exported packages trigger this rule
+        // '@typescript-eslint/no-unsafe-member-access': ['off'], // I don't know why some exported packages trigger this rule
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_.*_$', varsIgnorePattern: '^_.*_$' }],
       },
     },
